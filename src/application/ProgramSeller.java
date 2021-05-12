@@ -2,19 +2,21 @@ package application;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import model.dao.DaoFactory;
-import model.dao.DepartmentDao;
 import model.dao.SellerDao;
 import model.entities.Department;
 import model.entities.Seller;
 
-public class Program {
+public class ProgramSeller {
 
 	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		SellerDao sellerDao = DaoFactory.createSellerDao();
 
 		System.out.println("=== TEST Nro 1: Seller findById ===");
-		SellerDao sellerDao = DaoFactory.createSellerDao();
 		Seller seller = sellerDao.findById(3);
 		System.out.println(seller);
 		
@@ -43,12 +45,12 @@ public class Program {
  		seller.setName("Martha Waine");
  		sellerDao.update(seller);
  		System.out.println("Update completed");
-		
-		
-		DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
-		System.out.println("\n=== TEST Nro : Department findById ===");
-		Department dp = departmentDao.findById(1);
-		System.out.println(dp);
+ 		
+ 		System.out.println("\n=== TEST 6: seller delete =====");
+ 		System.out.print("Enter id for delete test: ");
+ 		int id = sc.nextInt();
+ 		sellerDao.deleteById(id);
+ 		System.out.println("Delete completed");
+ 		sc.close();
 	}
-
 }
