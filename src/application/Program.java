@@ -17,13 +17,7 @@ public class Program {
 		Seller seller = sellerDao.findById(3);
 		System.out.println(seller);
 		
-		DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
-		System.out.println("\n=== TEST Nro 2: Department findById ===");
-		Department dp = departmentDao.findById(1);
-		System.out.println(dp);
-		
-		System.out.println("\n=== TEST Nro 3: Seller findByDepartment ===");
-		
+		System.out.println("\n=== TEST Nro 2: Seller findByDepartment ===");
 		Department department = new Department(2, null);
 		List<Seller> list  = sellerDao.findByDepartment(department);
 		
@@ -31,6 +25,19 @@ public class Program {
 			System.out.println(sl);
 		}
 		
+		System.out.println("\n=== TEST Nro 3: Seller findByAll ===");
+		list  = sellerDao.findAll();
+		
+		for (Seller sl : list) {
+			System.out.println(sl);
+		}
+
+		
+		
+		DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
+		System.out.println("\n=== TEST Nro : Department findById ===");
+		Department dp = departmentDao.findById(1);
+		System.out.println(dp);
 	}
 
 }
