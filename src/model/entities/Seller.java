@@ -67,11 +67,11 @@ public class Seller implements Serializable {
 		this.baseSalary = baseSalary;
 	}
 
-	public Department getDeparment() {
+	public Department getDepartment() {
 		return deparment;
 	}
 
-	public void setDeparment(Department deparment) {
+	public void setDepartment(Department deparment) {
 		this.deparment = deparment;
 	}
 
